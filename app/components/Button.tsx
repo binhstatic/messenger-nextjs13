@@ -1,15 +1,15 @@
-'use client';
+'use client'
 
-import clsx from 'clsx';
+import clsx from 'clsx'
 
 interface ButtonProps {
-  children: React.ReactNode;
-  type?: 'button' | 'submit' | 'reset';
-  fullWidth?: boolean;
-  onClick?: () => void;
-  secondary?: boolean;
-  danger?: boolean;
-  disabled?: boolean;
+  children: React.ReactNode
+  type?: 'button' | 'submit' | 'reset'
+  fullWidth?: boolean
+  onClick?: () => void
+  secondary?: boolean
+  danger?: boolean
+  disabled?: boolean
 }
 
 export default function Button({
@@ -38,7 +38,7 @@ export default function Button({
         focus-visible:outline-2
         focus-visible:outline-offset-2
       `,
-        disabled && 'opacity-50 cursor-default',
+        disabled && 'cursor-default opacity-50',
         fullWidth && 'w-full',
         secondary ? 'text-gray-900' : 'text-white',
         danger &&
@@ -50,5 +50,5 @@ export default function Button({
     >
       {children}
     </button>
-  );
+  )
 }

@@ -1,8 +1,8 @@
-import { IconType } from 'react-icons';
+import { IconType } from 'react-icons'
 
 interface AuthSocialButtonProps {
-  icon: IconType;
-  onClick: () => void;
+  icon: IconType
+  onClick: () => void
 }
 
 export default function AuthSocialButton({
@@ -17,5 +17,5 @@ export default function AuthSocialButton({
     >
       <Icon />
     </button>
-  );
+  )
 }
