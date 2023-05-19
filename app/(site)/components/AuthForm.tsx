@@ -1,15 +1,18 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import axios from 'axios';
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import { BsGithub, BsGoogle } from 'react-icons/bs';
-import { toast } from 'react-hot-toast';
-import { signIn, useSession } from 'next-auth/react';
+
 import { useRouter } from 'next/navigation';
+
+import axios from 'axios';
+import { signIn, useSession } from 'next-auth/react';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
+import { BsGithub, BsGoogle } from 'react-icons/bs';
 
 import Button from '@/app/components/Button';
 import Input from '@/app/components/inputs/Input';
+
 import AuthSocialButton from './AuthSocialButton';
 
 type Variant = 'LOGIN' | 'REGISTER';
@@ -95,13 +98,13 @@ export default function AuthForm() {
   };
 
   return (
-    <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
-      <div className='bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10'>
-        <form className='space-y-6' onSubmit={handleSubmit(onSubmit)}>
+    <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
+        <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           {variant === 'REGISTER' && (
             <Input
-              id='name'
-              label='Name'
+              id="name"
+              label="Name"
               required
               register={register}
               errors={errors}
@@ -109,41 +112,41 @@ export default function AuthForm() {
             />
           )}
           <Input
-            id='email'
-            label='Email'
-            type='email'
+            id="email"
+            label="Email"
+            type="email"
             required
             register={register}
             errors={errors}
             disabled={isLoading}
           />
           <Input
-            id='password'
-            label='Password'
-            type='password'
+            id="password"
+            label="Password"
+            type="password"
             required
             register={register}
             errors={errors}
             disabled={isLoading}
           />
-          <Button type='submit' disabled={isLoading} fullWidth>
+          <Button type="submit" disabled={isLoading} fullWidth>
             {variant === 'REGISTER' ? 'Register' : 'Sign in'}
           </Button>
         </form>
 
-        <div className='mt-6'>
-          <div className='relative'>
-            <div className='absolute inset-0 flex items-center'>
-              <div className='w-full border-t border-gray-300' />
+        <div className="mt-6">
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300" />
             </div>
-            <div className='relative flex justify-center text-sm'>
-              <span className='bg-white px-2 text-gray-500'>
+            <div className="relative flex justify-center text-sm">
+              <span className="bg-white px-2 text-gray-500">
                 Or continue with
               </span>
             </div>
           </div>
 
-          <div className='mt-6 flex gap-2'>
+          <div className="mt-6 flex gap-2">
             <AuthSocialButton
               icon={BsGithub}
               onClick={() => socialAction('github')}
@@ -155,13 +158,13 @@ export default function AuthForm() {
           </div>
         </div>
 
-        <div className='flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500'>
+        <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500">
           <div>
             {variant === 'REGISTER'
               ? 'Already have an account?'
               : 'New to Messenger?'}
           </div>
-          <div onClick={toggleVariant} className='underline cursor-pointer'>
+          <div onClick={toggleVariant} className="underline cursor-pointer">
             {variant === 'REGISTER' ? 'Login' : 'Create an account'}
           </div>
         </div>
